@@ -1,0 +1,23 @@
+https://leetcode.com/problems/delete-and-earn/solutions/3299549/linear-solution-using-frequency-array/
+tc:O(n) sc:O(1)
+step1:creating frequency array of size 10001
+step2:put frequency according to given array
+step3:get element of array and compare with previous value
+step4:return the maximum element
+
+
+
+class Solution {
+    public int deleteAndEarn(int[] nums) {
+        int[] values = new int[10001];
+        for (int num : nums)values[num] += num;
+        int take = 0, skip = 0;
+        for (int i = 0; i < 10001; i++) {
+            int takei = skip + values[i];
+            int skipi = Math.max(skip, take);
+            take = takei;
+            skip = skipi;
+        }
+        return Math.max(take, skip);
+    }
+}
