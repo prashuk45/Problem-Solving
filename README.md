@@ -5,3 +5,4 @@ for solving daily leetcode solutions
 |laxogrfic order|slack|easy  | 
 |delete and earn|leetcode|medium|
 fizzbuzz multithreading|leetcode|medium|
+minimum path sum|leetcode|medium|
