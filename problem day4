@@ -1,0 +1,23 @@
+https://leetcode.com/problems/minimum-path-sum/solutions/3346518/java-solution/
+
+problem: finding minimum value in 2d array
+approch: traverse array in clock wise vs anticloack wise and compare
+
+SOURCE CODE JAVA
+class Solution {
+    public int minPathSum(int[][] grid) {
+        int la = grid.length;
+        int lb = grid[0].length;
+        int[][] arr = new int[la][lb];
+        arr[0][0] = grid[0][0];
+        for (int i = 1; i < lb; i++) arr[0][i] = arr[0][i-1] + grid[0][i];
+        for (int i = 1; i < la; i++) arr[i][0] = arr[i-1][0] + grid[i][0];
+        for (int i = 1; i < la; i++) {
+            for (int j = 1; j < lb; j++) {
+                arr[i][j] = Math.min(arr[i-1][j], arr[i][j-1]) + grid[i][j];
+            }
+        }
+        
+        return arr[la-1][lb-1];
+    }
+}
